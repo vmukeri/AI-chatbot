@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Assistant Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logout Button -->
+        <button class="logout" onclick="logout()">Sign Out</button>
+
+        <!-- Title -->
+        <h1>AI Interview Assistant Chatbot</h1>
+        
+        <p>Welcome, <strong>{{ full_name }}</strong>!</p>
+
+        <!-- Chat Log -->
+        <div class="chat-box">
+            <div id="chat-log" class="chat-log">
+                {% for item in history %}
+                    <div class="chat-entry">
+                        <p><strong>You:</strong> {{ item.message }}</p>
+                        <p><strong>Jarvis:</strong> {{ item.response | safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Input Section -->
+            <form id="input-form" onsubmit="handleFormSubmit(event)">
+                <div class="input-row">
+                    <textarea id="user-input" rows="3" placeholder="Ask me anything..."></textarea>
+                    <button type="button" id="voice-button" class="small-button" onclick="startVoiceRecognition()">🎤</button>
+                </div>
+                <button type="submit" class="small-button">Submit</button>
+            </form>
+
+            <!-- File Upload Form -->
+            <form id="upload-form" enctype="multipart/form-data" style="margin-top: 10px;" onsubmit="return false;">
+                <input type="file" id="file-input" name="file" accept=".txt,.pdf,.docx">
+                <button type="button" onclick="uploadFile()" class="small-button">Upload File</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

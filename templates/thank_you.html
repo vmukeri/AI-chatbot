@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>🎉 Thank you for using our Interview Assistant Chatbot!</h2>
+        <p>We hope it helped you prepare confidently. We'd really appreciate your feedback:</p>
+
+        <div class="buttons">
+            <a class="button" href="https://forms.gle/phxMyVjMNkgrtDqD7" target="_blank">📝 Give Feedback</a>
+           <!-- <span style="margin: 0 10px;">|</span> -->
+            <a class="button" href="{{ url_for('home') }}">🏠 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
