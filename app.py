@@ -11,11 +11,11 @@ from docx import Document
 app = Flask(__name__)
 
 # Set your OpenAI API key here
-openai.api_key = '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'
+openai.api_key = ''
 
 # Config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://chatbotuser:chatbotpass@localhost:5433/chatbotdb'
-app.config['SECRET_KEY'] = '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'
+app.config['SECRET_KEY'] = ''
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
